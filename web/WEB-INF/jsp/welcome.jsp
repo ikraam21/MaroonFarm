@@ -36,7 +36,7 @@
                             <tbody>
                                 <c:forEach items="${product}" var="c">
                                     <tr>
-                                        <td><img src="<c:url value="/buah-img/${c.productImage}" />" width="100" height="100" /></td>
+                                        <td><img src="<c:url value="/web/buah-img/${c.productImage}" />" width="100" height="100" /></td>
                                         <td><a href="detail/${c.productId}">${c.productName}</a></td>
                                         <td>Rp. ${c.productPrice}</td>
                                     </tr>
