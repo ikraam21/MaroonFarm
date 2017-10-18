@@ -24,7 +24,7 @@ public class CartController {
     public String cartContents(){
         return "cart";
     }
-    @RequestMapping(value = "/hapus/{productId}")
+    @RequestMapping(value = "/delete/{productId}")
     public String cartContents(HttpSession session, @PathVariable("productId") Integer productId){
         List<Product> list=(List<Product>) session.getAttribute("cart");
         List<Product> newCart=new ArrayList<>();

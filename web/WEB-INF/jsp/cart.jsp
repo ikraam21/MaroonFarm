@@ -9,18 +9,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>Keranjang Belanja</title>
     </head>
     <body>
-        <h3><a href="cartContents">Keranjang Belanja</a> : ${cart.size()} Produk</h3>
-        <h1>Isi Keranjang Anda :</h1>
-        <c:forEach items="${cart}" var="c">
+        <div class="container">
+            <h4>Username : ${user.username}</h4>
+            <h4><a href="cartContents">Keranjang Belanja</a> : ${cart.size()} Produk</h4>
+
+            <p/>
+            <h3>Isi Keranjang Anda :</h3>
+
             <div>
-                <div>${c.productName}</div>
-                <div><a href="cartContents/hapus/${c.productId}">Hapus</a></div>
+                <table class="table table-bordere">
+                    <tbody>
+                        <c:forEach items="${cart}" var="c">
+                            <tr>
+                                <td>${c.productName}</td>
+                                <td>Rp. ${c.productPrice}</td>
+                                <td><a href="cartContents/delete/${c.productId}">Hapus</a></td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
             </div>
-        </c:forEach>
-        <a href="welcome"><button type="submit">Kembali Berbelanja</button></a>
+            <a href="welcome"><button type="submit">Kembali Berbelanja</button></a>
+        </div>
     </body>
 </html>
